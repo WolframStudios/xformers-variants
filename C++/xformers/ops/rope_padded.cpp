@@ -320,7 +320,7 @@ def rope_padded(
 namespace xformers {
 namespace ops {
 
-std::any rope_padded(torch::torch::Tensor xq, torch::torch::Tensor xk, torch::torch::Tensor xv, torch::torch::Tensor cache_k, torch::torch::Tensor cache_v, BlockDiagonalCausalWithOffsetPaddedKeysMask attn_bias) {
+std::any rope_padded(torch::Tensor xq, torch::Tensor xk, torch::Tensor xv, torch::Tensor cache_k, torch::Tensor cache_v, BlockDiagonalCausalWithOffsetPaddedKeysMask attn_bias) {
   /*
   Performs RoPE (rotary embeddings) and kv-cache emplacement for a heterogeneous
   batch for inference in the style given by

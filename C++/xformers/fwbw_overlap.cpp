@@ -598,10 +598,10 @@ class _ExitCompute : public Function {
   [comms]
   */
   _ExitCompute() = default;
-  std::any forward(torch.autograd.function.FunctionCtx ctx, std::vector<std::any> varargs = {}) {
+  std::any forward(std::any ctx, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::forward");
   }
-  std::any backward(torch.autograd.function.FunctionCtx ctx, Union[EventOverlapHolder, void] gholder, std::vector<std::any> varargs = {}) {
+  std::any backward(std::any ctx, std::optional<EventOverlapHolder> gholder, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::backward");
   }
 };
@@ -616,10 +616,10 @@ class _EnterCompute : public Function {
   [compute]
   */
   _EnterCompute() = default;
-  std::any forward(torch.autograd.function.FunctionCtx ctx, EventOverlapHolder holder, std::vector<std::any> varargs = {}) {
+  std::any forward(std::any ctx, EventOverlapHolder holder, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::forward");
   }
-  std::any backward(torch.autograd.function.FunctionCtx ctx, std::vector<std::any> varargs = {}) {
+  std::any backward(std::any ctx, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::backward");
   }
 };
@@ -632,36 +632,36 @@ class _FillGradientForOverlapHolder : public Function {
   not happen.
   */
   _FillGradientForOverlapHolder() = default;
-  std::any forward(torch.autograd.function.FunctionCtx ctx, EventOverlapHolder holder, std::vector<std::any> varargs = {}) {
+  std::any forward(std::any ctx, EventOverlapHolder holder, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::forward");
   }
-  std::any backward(torch.autograd.function.FunctionCtx ctx, Union[EventOverlapHolder, void] gholder, std::vector<std::any> varargs = {}) {
+  std::any backward(std::any ctx, std::optional<EventOverlapHolder> gholder, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::backward");
   }
 };
 
-tuple[EventOverlapHolder, Unpack[tuple[torch::torch::Tensor, ...]]] enter_comm(std::vector<std::any> varargs = {}) {
-  return translation::unsupported<tuple[EventOverlapHolder, Unpack[tuple[torch::torch::Tensor, ...]]]>("Translated placeholder for xformers/fwbw_overlap.py::enter_comm");
+std::any enter_comm(std::vector<std::any> varargs = {}) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::enter_comm");
 }
 
-tuple[torch::torch::Tensor, ...] enter_compute(EventOverlapHolder __overlap_holder, torch::torch::Tensor __tensor0, torch::torch::Tensor __tensor1, std::vector<std::any> varargs = {}) {
-  return translation::unsupported<tuple[torch::torch::Tensor, ...]>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
+std::any enter_compute(EventOverlapHolder __overlap_holder, torch::Tensor __tensor0, torch::Tensor __tensor1, std::vector<std::any> varargs = {}) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
 }
 
-torch::torch::Tensor enter_compute(EventOverlapHolder overlap_holder, torch::torch::Tensor tensor) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
+torch::Tensor enter_compute(EventOverlapHolder overlap_holder, torch::Tensor tensor) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
 }
 
-Union[torch::torch::Tensor, tuple[torch::torch::Tensor, ...]] enter_compute(EventOverlapHolder overlap_holder, std::vector<std::any> varargs = {}) {
-  return translation::unsupported<Union[torch::torch::Tensor, tuple[torch::torch::Tensor, ...]]>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
+std::any enter_compute(EventOverlapHolder overlap_holder, std::vector<std::any> varargs = {}) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::enter_compute");
 }
 
 struct PhaseBoundary {
  public:
   std::string fw_enter;
-  threading.BoundedSemaphore arrived_sem;
-  threading.BoundedSemaphore unblock_sem;
-  'Union[PhaseBoundary, void]' fw_previous_boundary;
+  std::any arrived_sem;
+  std::any unblock_sem;
+  std::any fw_previous_boundary;
   bool is_final;
   PhaseBoundary() = default;
   void __post_init__() {
@@ -678,7 +678,7 @@ struct PhaseBoundary {
 class InitialBw {
  public:
   InitialBw() = default;
-  void __init__(std::function<std::any(std::vector<std::any>)>[[], void] trigger_bw) {
+  void __init__(const std::function<void()>& trigger_bw) {
     translation::unsupported_void("Translated placeholder for xformers/fwbw_overlap.py::__init__");
   }
   void __call__() {
@@ -697,20 +697,20 @@ class _GlobalAutogradThread {
   }
 };
 
-threading.Semaphore async_bw(std::function<std::any(std::vector<std::any>)>[[], void] backward_fn) {
+std::any async_bw(const std::function<void()>& backward_fn) {
   /*
   You can wait for the backward to finish with `done_semaphore.acquire()`
   */
-  return translation::unsupported<threading.Semaphore>("Translated placeholder for xformers/fwbw_overlap.py::async_bw");
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::async_bw");
 }
 
 class _WaitInBW : public Function {
  public:
   _WaitInBW() = default;
-  std::any forward(torch.autograd.function.FunctionCtx ctx, PhaseBoundary boundary, std::vector<std::any> varargs = {}) {
+  std::any forward(std::any ctx, PhaseBoundary boundary, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::forward");
   }
-  std::any backward(torch.autograd.function.FunctionCtx ctx, std::vector<std::any> varargs = {}) {
+  std::any backward(std::any ctx, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::backward");
   }
 };
@@ -727,11 +727,11 @@ void before_forward(bool record_fw_chunks) {
   translation::unsupported_void("Translated placeholder for xformers/fwbw_overlap.py::before_forward");
 }
 
-tuple[torch::torch::Tensor, ...] enter_phase(std::string enter, std::vector<std::any> varargs = {}) {
+std::any enter_phase(std::string enter, std::vector<std::any> varargs = {}) {
   /*
   Marks the transition to either comms or compute in the FW pass
   */
-  return translation::unsupported<tuple[torch::torch::Tensor, ...]>("Translated placeholder for xformers/fwbw_overlap.py::enter_phase");
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::enter_phase");
 }
 
 bool flush_single_bw_chunk() {
@@ -745,12 +745,12 @@ void flush_pending_bw() {
   translation::unsupported_void("Translated placeholder for xformers/fwbw_overlap.py::flush_pending_bw");
 }
 
-T overlap_fw_bw(std::function<std::any(std::vector<std::any>)>[[], T] trigger_fw, std::function<std::any(std::vector<std::any>)>[[], void] trigger_bw, int64_t initial_bw_chunks = 0) {
-  return translation::unsupported<T>("Translated placeholder for xformers/fwbw_overlap.py::overlap_fw_bw");
+std::any overlap_fw_bw(const std::function<std::any()>& trigger_fw, const std::function<void()>& trigger_bw, int64_t initial_bw_chunks = 0) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::overlap_fw_bw");
 }
 
-T _overlap_fw_bw(std::function<std::any(std::vector<std::any>)>[[], T] trigger_fw, std::function<std::any(std::vector<std::any>)>[[], void] trigger_bw, int64_t initial_bw_chunks = 0) {
-  return translation::unsupported<T>("Translated placeholder for xformers/fwbw_overlap.py::_overlap_fw_bw");
+std::any _overlap_fw_bw(const std::function<std::any()>& trigger_fw, const std::function<void()>& trigger_bw, int64_t initial_bw_chunks = 0) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::_overlap_fw_bw");
 }
 
 } // namespace xformers

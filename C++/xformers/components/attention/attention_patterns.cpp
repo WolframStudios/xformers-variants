@@ -315,20 +315,20 @@ std::any random_pattern_from_probability_matrix(std::any dist_matrix, std::any n
   return translation::unsupported<std::any>("Translated placeholder for xformers/components/attention/attention_patterns.py::random_pattern_from_probability_matrix");
 }
 
-torch::torch::Tensor global_token_pattern(torch::torch::Tensor attention_query_mask) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::global_token_pattern");
+torch::Tensor global_token_pattern(torch::Tensor attention_query_mask) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::global_token_pattern");
 }
 
-torch::torch::Tensor random_pattern(int64_t attn_size, double sparsity) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::random_pattern");
+torch::Tensor random_pattern(int64_t attn_size, double sparsity) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::random_pattern");
 }
 
-torch::torch::Tensor local_1d_pattern(int64_t attn_size, int64_t window_size) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::local_1d_pattern");
+torch::Tensor local_1d_pattern(int64_t attn_size, int64_t window_size) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::local_1d_pattern");
 }
 
-torch::torch::Tensor causal_1d_pattern(int64_t attn_size) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::causal_1d_pattern");
+torch::Tensor causal_1d_pattern(int64_t attn_size) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::causal_1d_pattern");
 }
 
 std::any horizontal_axial_2d_distance(std::any H, std::any W, std::any p = 2.0) {
@@ -375,15 +375,15 @@ std::any block_sparsify_tensor(torch::Tensor x, torch::Tensor mask, std::any blo
   return translation::unsupported<std::any>("Translated placeholder for xformers/components/attention/attention_patterns.py::block_sparsify_tensor");
 }
 
-torch::torch::Tensor pattern_to_layout(torch::torch::Tensor mask, int64_t block_size) {
+torch::Tensor pattern_to_layout(torch::Tensor mask, int64_t block_size) {
   /*
   Given a mask pattern and blocksize, return the corresponding layout
   which makes sure that all the positives in the mask are covered
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::pattern_to_layout");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::pattern_to_layout");
 }
 
-torch::torch::Tensor alibi_pattern(double threshold, torch.Size mask_shape) {
+torch::Tensor alibi_pattern(double threshold, torch.Size mask_shape) {
   /*
   Use the additive bias computation from ALiBi_ to generate a mask.
   Note that this mask can in turn be used to generate a blocksparse attention computation layout
@@ -392,10 +392,10 @@ torch::torch::Tensor alibi_pattern(double threshold, torch.Size mask_shape) {
   
   .. _ALiBi: https://arxiv.org/pdf/2108.12409.pdf
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::alibi_pattern");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/components/attention/attention_patterns.py::alibi_pattern");
 }
 
-std::any layout_to_pattern(torch::torch::Tensor layout, int64_t block_size) {
+std::any layout_to_pattern(torch::Tensor layout, int64_t block_size) {
   /*
   create a pattern of shape [heads, seq, seq] out of a blocksparse
   layout of shape [heads, seq/block_size, seq/block_size]

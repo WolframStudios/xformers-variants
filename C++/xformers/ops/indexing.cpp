@@ -276,15 +276,15 @@ class IndexSelect : public BaseOperator {
 class _ScaledIndexAdd : public Function {
  public:
   _ScaledIndexAdd() = default;
-  torch::torch::Tensor forward(std::any ctx, torch::torch::Tensor x, torch::torch::Tensor index, torch::torch::Tensor source, std::optional<torch::torch::Tensor> scaling, double alpha) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::forward");
+  torch::Tensor forward(std::any ctx, torch::Tensor x, torch::Tensor index, torch::Tensor source, std::optional<torch::Tensor> scaling, double alpha) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::forward");
   }
   std::any backward(std::any ctx, std::any grad_output) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/indexing.py::backward");
   }
 };
 
-torch::torch::Tensor scaled_index_add(torch::torch::Tensor input, torch::torch::Tensor index, torch::torch::Tensor source, std::optional<torch::torch::Tensor> scaling = std::nullopt, double alpha = 1.0) {
+torch::Tensor scaled_index_add(torch::Tensor input, torch::Tensor index, torch::Tensor source, std::optional<torch::Tensor> scaling = std::nullopt, double alpha = 1.0) {
   /*
   In-place scaling+index_add
   
@@ -302,14 +302,14 @@ torch::torch::Tensor scaled_index_add(torch::torch::Tensor input, torch::torch::
   
       return torch.index_add(input, dim=0, source=scaling * src, index=indices, alpha=alpha)
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::scaled_index_add");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::scaled_index_add");
 }
 
 class _IndexSelectCat : public Function {
  public:
   _IndexSelectCat() = default;
-  torch::torch::Tensor forward(std::any ctx, std::vector<std::any> varargs = {}) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::forward");
+  torch::Tensor forward(std::any ctx, std::vector<std::any> varargs = {}) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::forward");
   }
   std::any backward(std::any ctx, std::any grad_output) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/indexing.py::backward");

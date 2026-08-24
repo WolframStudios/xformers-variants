@@ -921,13 +921,13 @@ class _FusedSequenceParallel {
   std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream] make_stream_factory(torch.cuda.Stream current_stream) {
     return translation::unsupported<std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::make_stream_factory");
   }
-  void allgather_and_linear(std::vector<torch::torch::Tensor> scattered_inputs, std::function<std::any(std::vector<std::any>)>[[std::vector<torch::torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, int64_t timeout_s, bool _wait = true, bool _memcpy = true) {
+  void allgather_and_linear(std::vector<torch::Tensor> scattered_inputs, std::function<std::any(std::vector<std::any>)>[[std::vector<torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, int64_t timeout_s, bool _wait = true, bool _memcpy = true) {
     /*
     Perform a fused all-gather followed by a linear layer
     */
     translation::unsupported_void("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::allgather_and_linear");
   }
-  void linear_and_reducescatter(std::function<std::any(std::vector<std::any>)>[[std::vector<torch::torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::vector<torch::torch::Tensor> gathered_outputs, std::vector<torch::torch::Tensor> scattered_outputs, int64_t timeout_s, bool _wait = true, bool _memcpy = true) {
+  void linear_and_reducescatter(std::function<std::any(std::vector<std::any>)>[[std::vector<torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::vector<torch::Tensor> gathered_outputs, std::vector<torch::Tensor> scattered_outputs, int64_t timeout_s, bool _wait = true, bool _memcpy = true) {
     /*
     Perform a fused linear layer followed by a reduce-scatter
     */
@@ -947,15 +947,15 @@ torch.cuda.Stream _default_stream_factory() {
   return translation::unsupported<torch.cuda.Stream>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::_default_stream_factory");
 }
 
-torch::torch::Tensor fused_allgather_and_linear(torch::torch::Tensor scattered_input, torch::torch::Tensor weight, std::unordered_map<std::string, std::any> kwargs = {}) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
+torch::Tensor fused_allgather_and_linear(torch::Tensor scattered_input, torch::Tensor weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
 }
 
-std::vector<torch::torch::Tensor> fused_allgather_and_linear(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
+std::vector<torch::Tensor> fused_allgather_and_linear(torch::Tensor scattered_input, std::vector<torch::Tensor> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
 }
 
-Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> fused_allgather_and_linear(torch::torch::Tensor scattered_input, Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+Union[torch::Tensor, std::vector<torch::Tensor]> fused_allgather_and_linear(torch::Tensor scattered_input, Union[torch::Tensor, std::vector<torch::Tensor]> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
   /*
   Performs a fused all-gather followed by a linear op
   
@@ -992,26 +992,26 @@ Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> fused_allgather_a
   quantize input and weight, respectively.
   3. set out_dtype, if not specified, will be inferred from scattered_input type.
   */
-  return translation::unsupported<Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
+  return translation::unsupported<Union[torch::Tensor, std::vector<torch::Tensor]>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_linear");
 }
 
-void _fused_allgather_and_linear_custom_op(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weights, dist.distd::stringibuted_c10d.GroupName process_group_name, std::vector<torch::torch::Tensor> gathered_outputs, int64_t timeout_s, bool _wait, bool _memcpy, torch::torch::Tensor scale_scattered_input, Sequence[std::optional<torch::torch::Tensor]> scales_weights) {
+void _fused_allgather_and_linear_custom_op(torch::Tensor scattered_input, std::vector<torch::Tensor> weights, dist.distd::stringibuted_c10d.GroupName process_group_name, std::vector<torch::Tensor> gathered_outputs, int64_t timeout_s, bool _wait, bool _memcpy, torch::Tensor scale_scattered_input, Sequence[std::optional<torch::Tensor]> scales_weights) {
   translation::unsupported_void("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::_fused_allgather_and_linear_custom_op");
 }
 
-void fused_allgather_and_anything(std::vector<torch::torch::Tensor> scattered_inputs, std::function<std::any(std::vector<std::any>)>[[std::vector<torch::torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::unordered_map<std::string, std::any> kwargs = {}) {
+void fused_allgather_and_anything(std::vector<torch::Tensor> scattered_inputs, std::function<std::any(std::vector<std::any>)>[[std::vector<torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::unordered_map<std::string, std::any> kwargs = {}) {
   translation::unsupported_void("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_allgather_and_anything");
 }
 
-torch::torch::Tensor fused_linear_and_reducescatter(torch::torch::Tensor gathered_input, torch::torch::Tensor weight, std::unordered_map<std::string, std::any> kwargs = {}) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
+torch::Tensor fused_linear_and_reducescatter(torch::Tensor gathered_input, torch::Tensor weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
 }
 
-std::vector<torch::torch::Tensor> fused_linear_and_reducescatter(torch::torch::Tensor gathered_input, std::vector<torch::torch::Tensor> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
+std::vector<torch::Tensor> fused_linear_and_reducescatter(torch::Tensor gathered_input, std::vector<torch::Tensor> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
 }
 
-Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> fused_linear_and_reducescatter(torch::torch::Tensor gathered_input, Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
+Union[torch::Tensor, std::vector<torch::Tensor]> fused_linear_and_reducescatter(torch::Tensor gathered_input, Union[torch::Tensor, std::vector<torch::Tensor]> weight, std::unordered_map<std::string, std::any> kwargs = {}) {
   /*
   Performs a fused linear op followed by a reduce-scatter
   
@@ -1029,14 +1029,14 @@ Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]> fused_linear_and_
   3. Set out_dtype to the desired output dtype. If not specified, it will be inferred from
   gathered_input datatype.
   */
-  return translation::unsupported<Union[torch::torch::Tensor, std::vector<torch::torch::Tensor]>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
+  return translation::unsupported<Union[torch::Tensor, std::vector<torch::Tensor]>>("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_linear_and_reducescatter");
 }
 
-void _fused_linear_and_reducescatter_custom_op(torch::torch::Tensor gathered_input, std::vector<torch::torch::Tensor> weights, dist.distd::stringibuted_c10d.GroupName process_group_name, std::vector<torch::torch::Tensor> scattered_outputs, int64_t timeout_s, bool _wait, bool _memcpy, torch::torch::Tensor scale_gathered_input, Sequence[std::optional<torch::torch::Tensor]> scales_weights) {
+void _fused_linear_and_reducescatter_custom_op(torch::Tensor gathered_input, std::vector<torch::Tensor> weights, dist.distd::stringibuted_c10d.GroupName process_group_name, std::vector<torch::Tensor> scattered_outputs, int64_t timeout_s, bool _wait, bool _memcpy, torch::Tensor scale_gathered_input, Sequence[std::optional<torch::Tensor]> scales_weights) {
   translation::unsupported_void("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::_fused_linear_and_reducescatter_custom_op");
 }
 
-void fused_anything_and_reducescatter(std::function<std::any(std::vector<std::any>)>[[std::vector<torch::torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::vector<torch::torch::Tensor> scattered_outputs, std::unordered_map<std::string, std::any> kwargs = {}) {
+void fused_anything_and_reducescatter(std::function<std::any(std::vector<std::any>)>[[std::vector<torch::Tensor], int64_t, std::function<std::any(std::vector<std::any>)>[[], torch.cuda.Stream]], void> my_matmul, std::vector<torch::Tensor> scattered_outputs, std::unordered_map<std::string, std::any> kwargs = {}) {
   translation::unsupported_void("Translated placeholder for xformers/ops/sequence_parallel_fused_ops.py::fused_anything_and_reducescatter");
 }
 

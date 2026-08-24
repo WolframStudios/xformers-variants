@@ -52,7 +52,7 @@ def top_p(probs: torch.Tensor, p: float) -> torch.Tensor:
 namespace examples {
 namespace llama_inference {
 
-torch::torch::Tensor top_p(torch::torch::Tensor probs, double p) {
+torch::Tensor top_p(torch::Tensor probs, double p) {
   /*
   Perform top-p (nucleus) sampling on a probability distribution.
   
@@ -68,7 +68,7 @@ torch::torch::Tensor top_p(torch::torch::Tensor probs, double p) {
       probability mass exceeds the threshold p. The distribution is
       renormalized based on the selected tokens.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/sample_utils.py::top_p");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/sample_utils.py::top_p");
 }
 
 } // namespace llama_inference

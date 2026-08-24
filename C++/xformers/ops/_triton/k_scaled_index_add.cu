@@ -389,19 +389,19 @@ namespace xformers {
 namespace ops {
 namespace _triton {
 
-void scaled_index_add_fwd_kernel(std::any input_ptr, std::any index_ptr, std::any source_ptr, std::any scaling_ptr, std::any alpha, std::any num_inp_indices, std::any num_src_indices, std::any num_rows, std::any num_cols, std::any stride0, std::any stride1, std::any stride2, tl.constexpr BLOCK_SIZE_INDEX, tl.constexpr BLOCK_SIZE_ROW, tl.constexpr BLOCK_SIZE_COL, tl.constexpr HAS_SCALING) {
+void scaled_index_add_fwd_kernel(std::any input_ptr, std::any index_ptr, std::any source_ptr, std::any scaling_ptr, std::any alpha, std::any num_inp_indices, std::any num_src_indices, std::any num_rows, std::any num_cols, std::any stride0, std::any stride1, std::any stride2, int64_t BLOCK_SIZE_INDEX, int64_t BLOCK_SIZE_ROW, int64_t BLOCK_SIZE_COL, int64_t HAS_SCALING) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/k_scaled_index_add.py::scaled_index_add_fwd_kernel");
 }
 
-std::any scaled_index_add_fwd(torch::torch::Tensor x, torch::torch::Tensor index, torch::torch::Tensor source, std::optional<torch::torch::Tensor> scaling, double alpha) {
+std::any scaled_index_add_fwd(torch::Tensor x, torch::Tensor index, torch::Tensor source, std::optional<torch::Tensor> scaling, double alpha) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/k_scaled_index_add.py::scaled_index_add_fwd");
 }
 
-void scaled_index_add_bwd_kernel(std::any grad_output_ptr, std::any grad_source_ptr, std::any grad_scaling_ptr, std::any source_ptr, std::any scaling_ptr, std::any index_ptr, std::any alpha, std::any num_inp_indices, std::any num_src_indices, std::any num_rows, std::any num_cols, std::any stride0, std::any stride1, std::any stride2, tl.constexpr BLOCK_SIZE_INDEX, tl.constexpr BLOCK_SIZE_ROW, tl.constexpr BLOCK_SIZE_COL, tl.constexpr HAS_SCALING) {
+void scaled_index_add_bwd_kernel(std::any grad_output_ptr, std::any grad_source_ptr, std::any grad_scaling_ptr, std::any source_ptr, std::any scaling_ptr, std::any index_ptr, std::any alpha, std::any num_inp_indices, std::any num_src_indices, std::any num_rows, std::any num_cols, std::any stride0, std::any stride1, std::any stride2, int64_t BLOCK_SIZE_INDEX, int64_t BLOCK_SIZE_ROW, int64_t BLOCK_SIZE_COL, int64_t HAS_SCALING) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/k_scaled_index_add.py::scaled_index_add_bwd_kernel");
 }
 
-std::any scaled_index_add_bwd(torch::torch::Tensor grad_output, torch::torch::Tensor grad_source, std::optional<torch::torch::Tensor> grad_scaling, torch::torch::Tensor source, std::optional<torch::torch::Tensor> scaling, torch::torch::Tensor index, double alpha) {
+std::any scaled_index_add_bwd(torch::Tensor grad_output, torch::Tensor grad_source, std::optional<torch::Tensor> grad_scaling, torch::Tensor source, std::optional<torch::Tensor> scaling, torch::Tensor index, double alpha) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/k_scaled_index_add.py::scaled_index_add_bwd");
 }
 

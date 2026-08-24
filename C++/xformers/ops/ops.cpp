@@ -25,7 +25,7 @@ torch::Tensor masked_matmul(const torch::Tensor& a,
     if (expanded.dim() == 2) {
       expanded = expanded.unsqueeze(0).expand({att.size(0), -1, -1});
     }
-    auto neg_inf = torch::full_like(att, -std::numeric_limits<float>::infinity());
+    auto neg_inf = torch::full_like(att, -std::numeric_limits<double>::infinity());
     return torch::where(expanded, att, neg_inf);
   }
   return att + *mask;

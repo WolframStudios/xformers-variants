@@ -491,7 +491,7 @@ if __name__ == "__main__":
 namespace xformers {
 namespace benchmarks {
 
-torch::torch::Tensor quantize_kv_int4(torch::torch::Tensor k, int64_t num_groups = 1) {
+torch::Tensor quantize_kv_int4(torch::Tensor k, int64_t num_groups = 1) {
   /*
   Auxiliary int4 row quantization function used for benchmarking and tests.
   Matches the behaviour of torch.ops.llama_cpp.dequantize_int4_cache -
@@ -499,7 +499,7 @@ torch::torch::Tensor quantize_kv_int4(torch::torch::Tensor k, int64_t num_groups
   dimension of the tensor are assumed to be packed into two float16 values
   at the beginning of the row.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_attn_decoding.py::quantize_kv_int4");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_attn_decoding.py::quantize_kv_int4");
 }
 
 class AttentionDecodingBase {

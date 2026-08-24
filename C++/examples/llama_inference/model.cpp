@@ -435,8 +435,8 @@ class Attention : public torch::nn::Module {
   void load_hook(std::any state_dict, std::any prefix, std::any local_metadata, std::any strict, std::any missing_keys, std::any unexpected_keys, std::any error_msgs) {
     translation::unsupported_void("Translated placeholder for examples/llama_inference/model.py::load_hook");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor x, LayerCache cache, AttnBias attn_bias, std::optional<torch::torch::Tensor> position_index) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
+  torch::Tensor forward(torch::Tensor x, LayerCache cache, AttnBias attn_bias, std::optional<torch::Tensor> position_index) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
   }
 };
 
@@ -449,8 +449,8 @@ class FeedForward : public torch::nn::Module {
   void load_hook(std::any state_dict, std::any prefix, std::any local_metadata, std::any strict, std::any missing_keys, std::any unexpected_keys, std::any error_msgs) {
     translation::unsupported_void("Translated placeholder for examples/llama_inference/model.py::load_hook");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor x) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
+  torch::Tensor forward(torch::Tensor x) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
   }
 };
 
@@ -460,8 +460,8 @@ class TransformerBlock : public torch::nn::Module {
   void __init__(ModelArgs args, int64_t layer_index) {
     translation::unsupported_void("Translated placeholder for examples/llama_inference/model.py::__init__");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor x, LayerCache cache, AttnBias attn_bias) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
+  torch::Tensor forward(torch::Tensor x, LayerCache cache, AttnBias attn_bias) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
   }
 };
 
@@ -471,11 +471,11 @@ class Transformer : public torch::nn::Module {
   void __init__(ModelArgs args) {
     translation::unsupported_void("Translated placeholder for examples/llama_inference/model.py::__init__");
   }
-  torch::torch::Tensor forward_with_attn_bias(torch::torch::Tensor token_values, AttnBias attn_bias, list[LayerCache] cache) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward_with_attn_bias");
+  torch::Tensor forward_with_attn_bias(torch::Tensor token_values, AttnBias attn_bias, list[LayerCache] cache) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward_with_attn_bias");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor token_values, torch::torch::Tensor token_lengths, torch::torch::Tensor start_pos, list[LayerCache] cache, int64_t kv_padding) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
+  torch::Tensor forward(torch::Tensor token_values, torch::Tensor token_lengths, torch::Tensor start_pos, list[LayerCache] cache, int64_t kv_padding) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/model.py::forward");
   }
 };
 

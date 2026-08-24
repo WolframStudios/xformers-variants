@@ -150,19 +150,19 @@ def stack_or_none(tensors: Sequence[torch.Tensor], dim: int) -> torch.Tensor:
 namespace xformers {
 namespace ops {
 
-std::optional<std::tuple<Union[int64_t, torch.SymInt], ...>> get_stack_strides(Sequence[torch::torch::Tensor] tensors, int64_t dim) {
+std::optional<std::tuple<Union[int64_t, torch.SymInt], ...>> get_stack_strides(Sequence[torch::Tensor] tensors, int64_t dim) {
   /*
   If the tensors are already stacked on dimension :code:`dim`,         returns the strides of the stacked tensors.         Otherwise returns :code:`None`.
   */
   return translation::unsupported<std::optional<std::tuple<Union[int64_t, torch.SymInt], ...>>>("Translated placeholder for xformers/ops/unbind.py::get_stack_strides");
 }
 
-std::optional<torch::torch::Tensor> _stack_or_none_fw(Union[std::tuple<torch::torch::Tensor, ...], std::vector<torch::torch::Tensor>> tensors, int64_t dim) {
-  return translation::unsupported<std::optional<torch::torch::Tensor>>("Translated placeholder for xformers/ops/unbind.py::_stack_or_none_fw");
+std::optional<torch::Tensor> _stack_or_none_fw(Union[std::tuple<torch::Tensor, ...], std::vector<torch::Tensor>> tensors, int64_t dim) {
+  return translation::unsupported<std::optional<torch::Tensor>>("Translated placeholder for xformers/ops/unbind.py::_stack_or_none_fw");
 }
 
-torch::torch::Tensor _stack_fw(Union[std::tuple<torch::torch::Tensor, ...], std::vector<torch::torch::Tensor>> tensors, int64_t dim) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/unbind.py::_stack_fw");
+torch::Tensor _stack_fw(Union[std::tuple<torch::Tensor, ...], std::vector<torch::Tensor>> tensors, int64_t dim) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/unbind.py::_stack_fw");
 }
 
 class _Unbind : public Function {
@@ -171,7 +171,7 @@ class _Unbind : public Function {
   See function `unbind`
   */
   _Unbind() = default;
-  std::any forward(std::any ctx, torch::torch::Tensor x, int64_t dim) {
+  std::any forward(std::any ctx, torch::Tensor x, int64_t dim) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/unbind.py::forward");
   }
   std::any backward(std::any ctx, std::vector<std::any> varargs = {}) {
@@ -188,26 +188,26 @@ class _StackOrNone : public Function {
   std::any forward(std::any ctx, int64_t dim, std::vector<std::any> varargs = {}) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/unbind.py::forward");
   }
-  std::any backward(std::any ctx, torch::torch::Tensor grad) {
+  std::any backward(std::any ctx, torch::Tensor grad) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/unbind.py::backward");
   }
 };
 
-std::tuple<torch::torch::Tensor, ...> unbind(torch::torch::Tensor x, int64_t dim) {
+std::tuple<torch::Tensor, ...> unbind(torch::Tensor x, int64_t dim) {
   /*
   Does exactly the same as :attr:`torch.unbind` for the forward.
   In backward, avoids a :attr:`torch.cat` if the gradients
   are already multiple views of the same storage
   */
-  return translation::unsupported<std::tuple<torch::torch::Tensor, ...>>("Translated placeholder for xformers/ops/unbind.py::unbind");
+  return translation::unsupported<std::tuple<torch::Tensor, ...>>("Translated placeholder for xformers/ops/unbind.py::unbind");
 }
 
-torch::torch::Tensor stack_or_none(Sequence[torch::torch::Tensor] tensors, int64_t dim) {
+torch::Tensor stack_or_none(Sequence[torch::Tensor] tensors, int64_t dim) {
   /*
   Does exactly the same as :attr:`torch.stack` if the tensors can be concatenated
   without any memory operation. Otherwise returns None.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/unbind.py::stack_or_none");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/unbind.py::stack_or_none");
 }
 
 } // namespace ops

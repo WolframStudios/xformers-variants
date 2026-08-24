@@ -481,7 +481,7 @@ class SwiGLUOp {
   bool supports('SwiGLUOpDispatch' op) {
     return translation::unsupported<bool>("Translated placeholder for xformers/ops/swiglu_op.py::supports");
   }
-  virtual torch::torch::Tensor __call__(std::vector<std::any> varargs = {}) = 0;
+  virtual torch::Tensor __call__(std::vector<std::any> varargs = {}) = 0;
   std::string __str__() {
     return translation::unsupported<std::string>("Translated placeholder for xformers/ops/swiglu_op.py::__str__");
   }
@@ -509,8 +509,8 @@ class _ForwardToFunc : public SwiGLUOp {
   }
 };
 
-torch::torch::Tensor _eager_functional_swiglu(torch::torch::Tensor x, torch::torch::Tensor w1, std::optional<torch::torch::Tensor> b1, torch::torch::Tensor w2, std::optional<torch::torch::Tensor> b2, torch::torch::Tensor w3, std::optional<torch::torch::Tensor> b3) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::_eager_functional_swiglu");
+torch::Tensor _eager_functional_swiglu(torch::Tensor x, torch::Tensor w1, std::optional<torch::Tensor> b1, torch::Tensor w2, std::optional<torch::Tensor> b2, torch::Tensor w3, std::optional<torch::Tensor> b3) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::_eager_functional_swiglu");
 }
 
 struct SwiGLUOpDispatch {
@@ -534,7 +534,7 @@ struct SwiGLUOpDispatch {
     */
     return translation::unsupported<SwiGLUOp>("Translated placeholder for xformers/ops/swiglu_op.py::op");
   }
-  'SwiGLUOpDispatch' from_arguments(torch::torch::Tensor x, torch::torch::Tensor w1, std::optional<torch::torch::Tensor> b1, torch::torch::Tensor w2, std::optional<torch::torch::Tensor> b2, torch::torch::Tensor w3, std::optional<torch::torch::Tensor> b3) {
+  'SwiGLUOpDispatch' from_arguments(torch::Tensor x, torch::Tensor w1, std::optional<torch::Tensor> b1, torch::Tensor w2, std::optional<torch::Tensor> b2, torch::Tensor w3, std::optional<torch::Tensor> b3) {
     return translation::unsupported<'SwiGLUOpDispatch'>("Translated placeholder for xformers/ops/swiglu_op.py::from_arguments");
   }
 };
@@ -543,7 +543,7 @@ bool _bias_enabled(SwiGLUOpDispatch op) {
   return translation::unsupported<bool>("Translated placeholder for xformers/ops/swiglu_op.py::_bias_enabled");
 }
 
-torch::torch::Tensor swiglu(torch::torch::Tensor x, torch::torch::Tensor w1, std::optional<torch::torch::Tensor> b1, torch::torch::Tensor w2, std::optional<torch::torch::Tensor> b2, torch::torch::Tensor w3, std::optional<torch::torch::Tensor> b3) {
+torch::Tensor swiglu(torch::Tensor x, torch::Tensor w1, std::optional<torch::Tensor> b1, torch::Tensor w2, std::optional<torch::Tensor> b2, torch::Tensor w3, std::optional<torch::Tensor> b3) {
   /*
   Computes a SwiGLU block given the weights/bias of the 3
   linear layers.
@@ -571,10 +571,10 @@ torch::torch::Tensor swiglu(torch::torch::Tensor x, torch::torch::Tensor w1, std
   
   This operator is only optimized on A100+ on ``torch.half`` or ``torch.bfloat16``         (autocast is supported), and will fallback to a functional pytorch         implementation otherwise.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::swiglu");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::swiglu");
 }
 
-torch::torch::Tensor swiglu_packed(torch::torch::Tensor x, torch::torch::Tensor w1w2, std::optional<torch::torch::Tensor> b1b2, torch::torch::Tensor w3, std::optional<torch::torch::Tensor> b3) {
+torch::Tensor swiglu_packed(torch::Tensor x, torch::Tensor w1w2, std::optional<torch::Tensor> b1b2, torch::Tensor w3, std::optional<torch::Tensor> b3) {
   /*
   Computes a SwiGLU block given the weights/bias of the 3
   linear layers.
@@ -592,7 +592,7 @@ torch::torch::Tensor swiglu_packed(torch::torch::Tensor x, torch::torch::Tensor 
   
   This operator is only optimized on A100+ on ``torch.half`` or ``torch.bfloat16``         (autocast is supported), and will fallback to a functional pytorch         implementation otherwise.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::swiglu_packed");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::swiglu_packed");
 }
 
 class SwiGLU : public torch::nn::Module {
@@ -614,7 +614,7 @@ class SwiGLU : public torch::nn::Module {
     */
     translation::unsupported_void("Translated placeholder for xformers/ops/swiglu_op.py::__init__");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor x) {
+  torch::Tensor forward(torch::Tensor x) {
     /*
     Computes :attr:`swiglu` with the module's weights
   
@@ -624,16 +624,16 @@ class SwiGLU : public torch::nn::Module {
     Returns:
         torch.Tensor: A Tensor of shape ``[..., out_features]``
     */
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::forward");
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/swiglu_op.py::forward");
   }
-  std::tuple<torch::torch::Tensor, std::optional<torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor>> _ordered_params() {
+  std::tuple<torch::Tensor, std::optional<torch::Tensor], torch::Tensor, Optional[torch::Tensor], torch::Tensor, Optional[torch::Tensor>> _ordered_params() {
     /*
     Used for testing - returns ordered arguments for operators
     */
-    return translation::unsupported<std::tuple<torch::torch::Tensor, std::optional<torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor>>>("Translated placeholder for xformers/ops/swiglu_op.py::_ordered_params");
+    return translation::unsupported<std::tuple<torch::Tensor, std::optional<torch::Tensor], torch::Tensor, Optional[torch::Tensor], torch::Tensor, Optional[torch::Tensor>>>("Translated placeholder for xformers/ops/swiglu_op.py::_ordered_params");
   }
-  std::tuple<torch::torch::Tensor, std::optional<torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor>> _packed_ordered_params() {
-    return translation::unsupported<std::tuple<torch::torch::Tensor, std::optional<torch::torch::Tensor], torch::torch::Tensor, Optional[torch::torch::Tensor>>>("Translated placeholder for xformers/ops/swiglu_op.py::_packed_ordered_params");
+  std::tuple<torch::Tensor, std::optional<torch::Tensor], torch::Tensor, Optional[torch::Tensor>> _packed_ordered_params() {
+    return translation::unsupported<std::tuple<torch::Tensor, std::optional<torch::Tensor], torch::Tensor, Optional[torch::Tensor>>>("Translated placeholder for xformers/ops/swiglu_op.py::_packed_ordered_params");
   }
 };
 

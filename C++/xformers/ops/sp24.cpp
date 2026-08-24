@@ -889,28 +889,28 @@ std::any sparse24_pointwise_op(std::any func, std::any types, std::any args, std
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::sparse24_pointwise_op");
 }
 
-torch::torch::Tensor sparse24_mm(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_mm");
+torch::Tensor sparse24_mm(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_mm");
 }
 
-torch::torch::Tensor sparse24_addmm(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_addmm");
+torch::Tensor sparse24_addmm(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_addmm");
 }
 
-torch::torch::Tensor sparse24_linear(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_linear");
+torch::Tensor sparse24_linear(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_linear");
 }
 
-torch::torch::Tensor sparse24_t(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_t");
+torch::Tensor sparse24_t(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_t");
 }
 
-torch::torch::Tensor sparse24_view(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_view");
+torch::Tensor sparse24_view(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_view");
 }
 
-torch::torch::Tensor sparse24_detach(std::any func, std::any types, std::any args, std::any kwargs) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_detach");
+torch::Tensor sparse24_detach(std::any func, std::any types, std::any args, std::any kwargs) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparse24_detach");
 }
 
 void no_dispatch() {
@@ -924,16 +924,16 @@ std::any fallback_dispatcher(std::any func, std::any types, std::any args, std::
 class Sparse24Tensor : public Tensor {
  public:
   Sparse24Tensor() = default;
-  std::any __new__(std::any shape, torch::torch::Tensor packed, torch::torch::Tensor meta, torch::torch::Tensor packed_t, torch::torch::Tensor meta_t, torch::torch::Tensor threads_masks) {
+  std::any __new__(std::any shape, torch::Tensor packed, torch::Tensor meta, torch::Tensor packed_t, torch::Tensor meta_t, torch::Tensor threads_masks) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::__new__");
   }
   std::any __repr__() {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::__repr__");
   }
-  torch::torch::Tensor _sp24_to_dense() {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_sp24_to_dense");
+  torch::Tensor _sp24_to_dense() {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_sp24_to_dense");
   }
-  virtual torch::torch::Tensor _mm(torch::torch::Tensor B) = 0;
+  virtual torch::Tensor _mm(torch::Tensor B) = 0;
   std::any __tensor_flatten__() {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::__tensor_flatten__");
   }
@@ -945,15 +945,15 @@ class Sparse24Tensor : public Tensor {
 class Sparse24TensorCutlass : public Sparse24Tensor {
  public:
   Sparse24TensorCutlass() = default;
-  torch::torch::Tensor _mm(torch::torch::Tensor B) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_mm");
+  torch::Tensor _mm(torch::Tensor B) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_mm");
   }
   std::any __torch_dispatch__(std::any func, std::any types, std::any args, std::any kwargs) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::__torch_dispatch__");
   }
 };
 
-int64_t _cusplt_find_alg(std::vector<int64_t> shape, torch::torch::Tensor packed, torch::torch::Tensor B, std::optional<torch::torch::Tensor> bias, bool transpose_result) {
+int64_t _cusplt_find_alg(std::vector<int64_t> shape, torch::Tensor packed, torch::Tensor B, std::optional<torch::Tensor> bias, bool transpose_result) {
   /*
   cuSPARSELt has multiple algorithms (that correspond to different kernels)
   to run a given GEMM, because the optimal kernel depends on the GEMM dimensions.
@@ -966,40 +966,40 @@ int64_t _cusplt_find_alg(std::vector<int64_t> shape, torch::torch::Tensor packed
   return translation::unsupported<int64_t>("Translated placeholder for xformers/ops/sp24.py::_cusplt_find_alg");
 }
 
-torch::torch::Tensor _cusplt_mm(std::vector<int64_t> shape, torch::torch::Tensor packed, torch::torch::Tensor B, std::optional<torch::torch::Tensor> bias, bool transpose_result) {
+torch::Tensor _cusplt_mm(std::vector<int64_t> shape, torch::Tensor packed, torch::Tensor B, std::optional<torch::Tensor> bias, bool transpose_result) {
   /*
   This operator wraps find_algo + gemm. This is because we don't want find_algo
   to be visible by torch compile, otherwise it will remove it from the graph.
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_cusplt_mm");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_cusplt_mm");
 }
 
-torch::torch::Tensor _cusplt_mm_meta(std::vector<int64_t> shape, torch::torch::Tensor packed, torch::torch::Tensor B, std::optional<torch::torch::Tensor> bias, bool transpose_result) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_cusplt_mm_meta");
+torch::Tensor _cusplt_mm_meta(std::vector<int64_t> shape, torch::Tensor packed, torch::Tensor B, std::optional<torch::Tensor> bias, bool transpose_result) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_cusplt_mm_meta");
 }
 
 class Sparse24TensorCuSparseLt : public Sparse24Tensor {
  public:
   Sparse24TensorCuSparseLt() = default;
-  torch::torch::Tensor _mm(torch::torch::Tensor B) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_mm");
+  torch::Tensor _mm(torch::Tensor B) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_mm");
   }
   std::any __torch_dispatch__(std::any func, std::any types, std::any args, std::any kwargs) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::__torch_dispatch__");
   }
 };
 
-Sparse24torch::Tensor _sparsify24_forward(torch::torch::Tensor x) {
+Sparse24torch::Tensor _sparsify24_forward(torch::Tensor x) {
   return translation::unsupported<Sparse24torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::_sparsify24_forward");
 }
 
 class _Sparsify24Func : public Function {
  public:
   _Sparsify24Func() = default;
-  std::any forward(std::any ctx, torch::torch::Tensor x, std::string algo, std::string gradient, std::string backend) {
+  std::any forward(std::any ctx, torch::Tensor x, std::string algo, std::string gradient, std::string backend) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::forward");
   }
-  std::any backward(std::any ctx, torch::torch::Tensor grad_out) {
+  std::any backward(std::any ctx, torch::Tensor grad_out) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::backward");
   }
 };
@@ -1007,10 +1007,10 @@ class _Sparsify24Func : public Function {
 class _Sparsify24STEFunc : public Function {
  public:
   _Sparsify24STEFunc() = default;
-  std::any forward(std::any ctx, torch::torch::Tensor x, std::string algo, std::string backend, double bw_mul0, double bw_mul1) {
+  std::any forward(std::any ctx, torch::Tensor x, std::string algo, std::string backend, double bw_mul0, double bw_mul1) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::forward");
   }
-  std::any backward(std::any ctx, torch::torch::Tensor grad_out) {
+  std::any backward(std::any ctx, torch::Tensor grad_out) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::backward");
   }
 };
@@ -1018,10 +1018,10 @@ class _Sparsify24STEFunc : public Function {
 class _Sparsify24LikeFunc : public Function {
  public:
   _Sparsify24LikeFunc() = default;
-  std::any forward(std::any ctx, torch::torch::Tensor x, Sparse24torch::Tensor pattern, std::string gradient, std::string backend) {
+  std::any forward(std::any ctx, torch::Tensor x, Sparse24torch::Tensor pattern, std::string gradient, std::string backend) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::forward");
   }
-  std::any backward(std::any ctx, torch::torch::Tensor grad_out) {
+  std::any backward(std::any ctx, torch::Tensor grad_out) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/ops/sp24.py::backward");
   }
 };
@@ -1030,11 +1030,11 @@ F allow_in_graph(F func) {
   return translation::unsupported<F>("Translated placeholder for xformers/ops/sp24.py::allow_in_graph");
 }
 
-Sparse24torch::Tensor sparsify24(torch::torch::Tensor x, std::string algo = "", std::string gradient, std::string backend) {
+Sparse24torch::Tensor sparsify24(torch::Tensor x, std::string algo = "", std::string gradient, std::string backend) {
   return translation::unsupported<Sparse24torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparsify24");
 }
 
-Sparse24torch::Tensor sparsify24_ste(torch::torch::Tensor x, std::string algo = "", std::string backend, double bw_mul0 = 1.0, double bw_mul1 = 1.0) {
+Sparse24torch::Tensor sparsify24_ste(torch::Tensor x, std::string algo = "", std::string backend, double bw_mul0 = 1.0, double bw_mul1 = 1.0) {
   /*
   2:4 sparsification, with Straight Through Estimator for the
   backward pass (eg the gradient is *not* sparsified).
@@ -1044,7 +1044,7 @@ Sparse24torch::Tensor sparsify24_ste(torch::torch::Tensor x, std::string algo = 
   return translation::unsupported<Sparse24torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparsify24_ste");
 }
 
-Sparse24torch::Tensor sparsify24_like(torch::torch::Tensor x, torch::torch::Tensor pattern, std::string gradient, std::string backend = "", std::optional<bool> out_dense = std::nullopt) {
+Sparse24torch::Tensor sparsify24_like(torch::Tensor x, torch::Tensor pattern, std::string gradient, std::string backend = "", std::optional<bool> out_dense = std::nullopt) {
   return translation::unsupported<Sparse24torch::Tensor>("Translated placeholder for xformers/ops/sp24.py::sparsify24_like");
 }
 

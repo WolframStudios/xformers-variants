@@ -182,11 +182,11 @@ namespace xformers {
 namespace ops {
 namespace _triton {
 
-void _rms_norm_kernel(std::any x_ptr, std::any h1_ptr, std::any w_ptr, double eps, std::any stride, tl.constexpr N_COLS, tl.constexpr BLOCK_SIZE, tl.constexpr INCLUDE_WEIGHT) {
+void _rms_norm_kernel(std::any x_ptr, std::any h1_ptr, std::any w_ptr, double eps, std::any stride, int64_t N_COLS, int64_t BLOCK_SIZE, int64_t INCLUDE_WEIGHT) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/rmsnorm_kernels.py::_rms_norm_kernel");
 }
 
-void _rms_norm_add_kernel(std::any x_ptr, std::any y_ptr, std::any h1_ptr, std::any w_ptr, double eps, std::any stride, tl.constexpr N_COLS, tl.constexpr BLOCK_SIZE, tl.constexpr INCLUDE_WEIGHT) {
+void _rms_norm_add_kernel(std::any x_ptr, std::any y_ptr, std::any h1_ptr, std::any w_ptr, double eps, std::any stride, int64_t N_COLS, int64_t BLOCK_SIZE, int64_t INCLUDE_WEIGHT) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/rmsnorm_kernels.py::_rms_norm_add_kernel");
 }
 

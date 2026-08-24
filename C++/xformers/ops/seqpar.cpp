@@ -387,20 +387,20 @@ def sequence_parallel_trailing_matmul(
 namespace xformers {
 namespace ops {
 
-std::vector<torch::torch::Tensor> sequence_parallel_leading_matmul_fwd(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weights, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_fwd");
+std::vector<torch::Tensor> sequence_parallel_leading_matmul_fwd(torch::Tensor scattered_input, std::vector<torch::Tensor> weights, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_fwd");
 }
 
-std::vector<torch::torch::Tensor> sequence_parallel_leading_matmul_fwd_fake(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weights, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_fwd_fake");
+std::vector<torch::Tensor> sequence_parallel_leading_matmul_fwd_fake(torch::Tensor scattered_input, std::vector<torch::Tensor> weights, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_fwd_fake");
 }
 
-std::tuple<torch::torch::Tensor, std::vector<torch::torch::Tensor>> sequence_parallel_leading_matmul_bwd(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weights, std::vector<torch::torch::Tensor> grad_gathered_outputs, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, std::vector<torch::torch::Tensor>>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_bwd");
+std::tuple<torch::Tensor, std::vector<torch::Tensor>> sequence_parallel_leading_matmul_bwd(torch::Tensor scattered_input, std::vector<torch::Tensor> weights, std::vector<torch::Tensor> grad_gathered_outputs, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::tuple<torch::Tensor, std::vector<torch::Tensor>>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_bwd");
 }
 
-std::tuple<torch::torch::Tensor, std::vector<torch::torch::Tensor>> sequence_parallel_leading_matmul_bwd_fake(torch::torch::Tensor scattered_input, std::vector<torch::torch::Tensor> weights, std::vector<torch::torch::Tensor> grad_gathered_outputs, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, std::vector<torch::torch::Tensor>>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_bwd_fake");
+std::tuple<torch::Tensor, std::vector<torch::Tensor>> sequence_parallel_leading_matmul_bwd_fake(torch::Tensor scattered_input, std::vector<torch::Tensor> weights, std::vector<torch::Tensor> grad_gathered_outputs, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::tuple<torch::Tensor, std::vector<torch::Tensor>>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_bwd_fake");
 }
 
 void sequence_parallel_leading_matmul_setup_context(std::any ctx, std::any inputs, torch::Tensor output) {
@@ -411,24 +411,24 @@ std::any sequence_parallel_leading_matmul_bwd_bridge(std::any ctx, std::any grad
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul_bwd_bridge");
 }
 
-std::vector<torch::torch::Tensor> sequence_parallel_leading_matmul(torch::torch::Tensor x, std::vector<torch::torch::Tensor> ws) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul");
+std::vector<torch::Tensor> sequence_parallel_leading_matmul(torch::Tensor x, std::vector<torch::Tensor> ws) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_leading_matmul");
 }
 
-torch::torch::Tensor sequence_parallel_trailing_matmul_fwd(torch::torch::Tensor gathered_input, torch::torch::Tensor weight, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_fwd");
+torch::Tensor sequence_parallel_trailing_matmul_fwd(torch::Tensor gathered_input, torch::Tensor weight, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_fwd");
 }
 
-torch::torch::Tensor sequence_parallel_trailing_matmul_fwd_fake(torch::torch::Tensor gathered_input, torch::torch::Tensor weight, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_fwd_fake");
+torch::Tensor sequence_parallel_trailing_matmul_fwd_fake(torch::Tensor gathered_input, torch::Tensor weight, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_fwd_fake");
 }
 
-std::tuple<torch::torch::Tensor, torch::torch::Tensor> sequence_parallel_trailing_matmul_bwd(torch::torch::Tensor gathered_input, torch::torch::Tensor weight, torch::torch::Tensor grad_scattered_output, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, torch::torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_bwd");
+std::tuple<torch::Tensor, torch::Tensor> sequence_parallel_trailing_matmul_bwd(torch::Tensor gathered_input, torch::Tensor weight, torch::Tensor grad_scattered_output, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::tuple<torch::Tensor, torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_bwd");
 }
 
-std::tuple<torch::torch::Tensor, torch::torch::Tensor> sequence_parallel_trailing_matmul_bwd_fake(torch::torch::Tensor gathered_input, torch::torch::Tensor weight, torch::torch::Tensor grad_scattered_output, bool fuse, GroupName process_group_name) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, torch::torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_bwd_fake");
+std::tuple<torch::Tensor, torch::Tensor> sequence_parallel_trailing_matmul_bwd_fake(torch::Tensor gathered_input, torch::Tensor weight, torch::Tensor grad_scattered_output, bool fuse, GroupName process_group_name) {
+  return translation::unsupported<std::tuple<torch::Tensor, torch::Tensor>>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_bwd_fake");
 }
 
 void sequence_parallel_trailing_matmul_setup_context(std::any ctx, std::any inputs, torch::Tensor output) {
@@ -439,8 +439,8 @@ std::any sequence_parallel_trailing_matmul_bwd_bridge(std::any ctx, std::any gra
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul_bwd_bridge");
 }
 
-torch::torch::Tensor sequence_parallel_trailing_matmul(torch::torch::Tensor x, torch::torch::Tensor w) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul");
+torch::Tensor sequence_parallel_trailing_matmul(torch::Tensor x, torch::Tensor w) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/seqpar.py::sequence_parallel_trailing_matmul");
 }
 
 } // namespace ops

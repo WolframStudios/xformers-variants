@@ -233,8 +233,8 @@ class MlpAct24 : public Mlp {
 class LinearW24 : public Linear {
  public:
   LinearW24() = default;
-  torch::torch::Tensor forward(torch::torch::Tensor input) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::forward");
+  torch::Tensor forward(torch::Tensor input) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::forward");
   }
 };
 
@@ -257,32 +257,32 @@ class MicrobenchmarkBase {
 class MicrobenchmarkSparsify24 : public MicrobenchmarkBase {
  public:
   MicrobenchmarkSparsify24() = default;
-  torch::torch::Tensor fw() {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
+  torch::Tensor fw() {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
   }
 };
 
 class MicrobenchmarkSp24ApplyDense : public MicrobenchmarkBase {
  public:
   MicrobenchmarkSp24ApplyDense() = default;
-  torch::torch::Tensor fw() {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
+  torch::Tensor fw() {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
   }
 };
 
 class MicrobenchmarkSp24ApplyDenseT : public MicrobenchmarkBase {
  public:
   MicrobenchmarkSp24ApplyDenseT() = default;
-  torch::torch::Tensor fw() {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
+  torch::Tensor fw() {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
   }
 };
 
 class MicrobenchmarkInputClone : public MicrobenchmarkBase {
  public:
   MicrobenchmarkInputClone() = default;
-  torch::torch::Tensor fw() {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
+  torch::Tensor fw() {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/benchmarks/benchmark_sp24.py::fw");
   }
 };
 

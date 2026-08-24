@@ -169,14 +169,14 @@ int64_t get_rank() {
   return translation::unsupported<int64_t>("Translated placeholder for examples/llama_inference/mp_utils.py::get_rank");
 }
 
-torch::torch::Tensor all_gather(torch::torch::Tensor x) {
+torch::Tensor all_gather(torch::Tensor x) {
   /*
   Gather a tensor of shape (n, m) into a tensor of shape (n, mp_size * m).
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for examples/llama_inference/mp_utils.py::all_gather");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for examples/llama_inference/mp_utils.py::all_gather");
 }
 
-void all_reduce(torch::torch::Tensor x) {
+void all_reduce(torch::Tensor x) {
   translation::unsupported_void("Translated placeholder for examples/llama_inference/mp_utils.py::all_reduce");
 }
 

@@ -344,36 +344,36 @@ bool _should_use_triton(torch.device device, torch.dtype dtype) {
   return translation::unsupported<bool>("Translated placeholder for xformers/ops/tiled_matmul.py::_should_use_triton");
 }
 
-std::tuple<std::vector<int64_t], List[int64_t], List[int64_t>> check_inputs(std::vector<List[torch::torch::Tensor]> a, std::vector<List[torch::torch::Tensor]> b) {
+std::tuple<std::vector<int64_t], List[int64_t], List[int64_t>> check_inputs(std::vector<List[torch::Tensor]> a, std::vector<List[torch::Tensor]> b) {
   return translation::unsupported<std::tuple<std::vector<int64_t], List[int64_t], List[int64_t>>>("Translated placeholder for xformers/ops/tiled_matmul.py::check_inputs");
 }
 
-void check_output(std::vector<List[torch::torch::Tensor]> out, std::vector<int64_t> ms, std::vector<int64_t> ns) {
+void check_output(std::vector<List[torch::Tensor]> out, std::vector<int64_t> ms, std::vector<int64_t> ns) {
   translation::unsupported_void("Translated placeholder for xformers/ops/tiled_matmul.py::check_output");
 }
 
-void tiled_matmul_out(std::vector<List[torch::torch::Tensor]> a, std::vector<List[torch::torch::Tensor]> b, std::vector<List[torch::torch::Tensor]> out) {
+void tiled_matmul_out(std::vector<List[torch::Tensor]> a, std::vector<List[torch::Tensor]> b, std::vector<List[torch::Tensor]> out) {
   translation::unsupported_void("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_out");
 }
 
-std::vector<torch::torch::Tensor> _flatten(std::vector<List[torch::torch::Tensor]> x, int64_t rows, int64_t cols) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::_flatten");
+std::vector<torch::Tensor> _flatten(std::vector<List[torch::Tensor]> x, int64_t rows, int64_t cols) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::_flatten");
 }
 
-std::vector<List[torch::torch::Tensor]> _unflatten(std::vector<torch::torch::Tensor> flat_x, int64_t rows, int64_t cols) {
-  return translation::unsupported<std::vector<List[torch::torch::Tensor]>>("Translated placeholder for xformers/ops/tiled_matmul.py::_unflatten");
+std::vector<List[torch::Tensor]> _unflatten(std::vector<torch::Tensor> flat_x, int64_t rows, int64_t cols) {
+  return translation::unsupported<std::vector<List[torch::Tensor]>>("Translated placeholder for xformers/ops/tiled_matmul.py::_unflatten");
 }
 
-std::vector<torch::torch::Tensor> _flattened_transpose(std::vector<torch::torch::Tensor> flat_x, int64_t rows, int64_t cols) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::_flattened_transpose");
+std::vector<torch::Tensor> _flattened_transpose(std::vector<torch::Tensor> flat_x, int64_t rows, int64_t cols) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::_flattened_transpose");
 }
 
-std::vector<torch::torch::Tensor> tiled_matmul_fwd(std::vector<torch::torch::Tensor> flat_a, std::vector<torch::torch::Tensor> flat_b, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_fwd");
+std::vector<torch::Tensor> tiled_matmul_fwd(std::vector<torch::Tensor> flat_a, std::vector<torch::Tensor> flat_b, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_fwd");
 }
 
-std::vector<torch::torch::Tensor> tiled_matmul_fwd_fake(std::vector<torch::torch::Tensor> flat_a, std::vector<torch::torch::Tensor> flat_b, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
-  return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_fwd_fake");
+std::vector<torch::Tensor> tiled_matmul_fwd_fake(std::vector<torch::Tensor> flat_a, std::vector<torch::Tensor> flat_b, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
+  return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_fwd_fake");
 }
 
 void tiled_matmul_setup_context(std::any ctx, std::any inputs, torch::Tensor output) {
@@ -384,7 +384,7 @@ std::any tiled_matmul_bwd(std::any ctx, std::any flat_grad_c) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul_bwd");
 }
 
-std::vector<List[torch::torch::Tensor]> tiled_matmul(std::vector<List[torch::torch::Tensor]> a, std::vector<List[torch::torch::Tensor]> b) {
+std::vector<List[torch::Tensor]> tiled_matmul(std::vector<List[torch::Tensor]> a, std::vector<List[torch::Tensor]> b) {
   /*
   Multiply two matrices given as grids of tiles
   
@@ -426,7 +426,7 @@ std::vector<List[torch::torch::Tensor]> tiled_matmul(std::vector<List[torch::tor
   
   This operator is differentiable.
   */
-  return translation::unsupported<std::vector<List[torch::torch::Tensor]>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul");
+  return translation::unsupported<std::vector<List[torch::Tensor]>>("Translated placeholder for xformers/ops/tiled_matmul.py::tiled_matmul");
 }
 
 } // namespace ops

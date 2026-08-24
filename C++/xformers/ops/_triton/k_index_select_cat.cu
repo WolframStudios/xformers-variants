@@ -208,19 +208,19 @@ namespace xformers {
 namespace ops {
 namespace _triton {
 
-void index_select_cat_fwd_kernel(std::any output_ptr, std::any source_ptr, std::any index_ptr, std::any num_indices, std::any num_cols, std::any stride0, std::any stride1, tl.constexpr BLOCK_SIZE_INDEX, tl.constexpr BLOCK_SIZE_COL) {
+void index_select_cat_fwd_kernel(std::any output_ptr, std::any source_ptr, std::any index_ptr, std::any num_indices, std::any num_cols, std::any stride0, std::any stride1, int64_t BLOCK_SIZE_INDEX, int64_t BLOCK_SIZE_COL) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/k_index_select_cat.py::index_select_cat_fwd_kernel");
 }
 
-std::any index_select_cat_fwd(torch::torch::Tensor output, torch::torch::Tensor source, torch::torch::Tensor index) {
+std::any index_select_cat_fwd(torch::Tensor output, torch::Tensor source, torch::Tensor index) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/k_index_select_cat.py::index_select_cat_fwd");
 }
 
-void index_select_cat_bwd_kernel(std::any grad_source_ptr, std::any index_ptr, std::any grad_output_ptr, std::any num_rows, std::any num_indices, std::any num_cols, std::any stride0, std::any stride1, tl.constexpr BLOCK_SIZE_INDEX, tl.constexpr BLOCK_SIZE_COL) {
+void index_select_cat_bwd_kernel(std::any grad_source_ptr, std::any index_ptr, std::any grad_output_ptr, std::any num_rows, std::any num_indices, std::any num_cols, std::any stride0, std::any stride1, int64_t BLOCK_SIZE_INDEX, int64_t BLOCK_SIZE_COL) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/k_index_select_cat.py::index_select_cat_bwd_kernel");
 }
 
-std::any index_select_cat_bwd(torch::torch::Tensor grad_source, torch::torch::Tensor index, torch::torch::Tensor grad_output) {
+std::any index_select_cat_bwd(torch::Tensor grad_source, torch::Tensor index, torch::Tensor grad_output) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/k_index_select_cat.py::index_select_cat_bwd");
 }
 

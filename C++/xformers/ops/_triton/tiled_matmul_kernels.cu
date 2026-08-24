@@ -489,7 +489,7 @@ std::any our_early_config_prune(std::any config, std::any named_args, std::unord
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::our_early_config_prune");
 }
 
-void _xformers_tiled_matmul_kernel(std::any A11, std::any A12, std::any A13, std::any A21, std::any A22, std::any A23, std::any A31, std::any A32, std::any A33, std::any B11, std::any B12, std::any B13, std::any B21, std::any B22, std::any B23, std::any B31, std::any B32, std::any B33, std::any C11, std::any C12, std::any C13, std::any C21, std::any C22, std::any C23, std::any C31, std::any C32, std::any C33, std::any M1, std::any M2, std::any M3, std::any N1, std::any N2, std::any N3, std::any K1, std::any K2, std::any K3, std::any stride_am1, std::any stride_am2, std::any stride_am3, std::any stride_ak1, std::any stride_ak2, std::any stride_ak3, std::any stride_bk1, std::any stride_bk2, std::any stride_bk3, std::any stride_bn1, std::any stride_bn2, std::any stride_bn3, std::any stride_cm1, std::any stride_cm2, std::any stride_cm3, std::any stride_cn1, std::any stride_cn2, std::any stride_cn3, tl.constexpr BLOCK_M, tl.constexpr BLOCK_N, tl.constexpr BLOCK_K, tl.constexpr GROUP_M, tl.constexpr SPLIT_K, tl.constexpr EVEN_K, tl.constexpr ACC_TYPE) {
+void _xformers_tiled_matmul_kernel(std::any A11, std::any A12, std::any A13, std::any A21, std::any A22, std::any A23, std::any A31, std::any A32, std::any A33, std::any B11, std::any B12, std::any B13, std::any B21, std::any B22, std::any B23, std::any B31, std::any B32, std::any B33, std::any C11, std::any C12, std::any C13, std::any C21, std::any C22, std::any C23, std::any C31, std::any C32, std::any C33, std::any M1, std::any M2, std::any M3, std::any N1, std::any N2, std::any N3, std::any K1, std::any K2, std::any K3, std::any stride_am1, std::any stride_am2, std::any stride_am3, std::any stride_ak1, std::any stride_ak2, std::any stride_ak3, std::any stride_bk1, std::any stride_bk2, std::any stride_bk3, std::any stride_bn1, std::any stride_bn2, std::any stride_bn3, std::any stride_cm1, std::any stride_cm2, std::any stride_cm3, std::any stride_cn1, std::any stride_cn2, std::any stride_cn3, int64_t BLOCK_M, int64_t BLOCK_N, int64_t BLOCK_K, int64_t GROUP_M, int64_t SPLIT_K, int64_t EVEN_K, int64_t ACC_TYPE) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::_xformers_tiled_matmul_kernel");
 }
 
@@ -497,11 +497,11 @@ std::any _check_row_or_column(std::any row_or_col_type, std::any row_or_col_idx,
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::_check_row_or_column");
 }
 
-std::tuple<std::vector<int64_t], List[int64_t>> _get_strides(std::vector<List[torch::torch::Tensor]> ts, std::any tensor_name, std::any dim_0_name, std::any dim_1_name) {
-  return translation::unsupported<std::tuple<std::vector<int64_t], List[int64_t>>>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::_get_strides");
+std::any _get_strides(std::any ts, std::any tensor_name, std::any dim_0_name, std::any dim_1_name) {
+  return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::_get_strides");
 }
 
-void _launch_triton_matmul(std::vector<List[torch::torch::Tensor]> a, std::vector<List[torch::torch::Tensor]> b, std::vector<List[torch::torch::Tensor]> c, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
+void _launch_triton_matmul(std::any a, std::any b, std::any c, std::vector<int64_t> ms, std::vector<int64_t> ns, std::vector<int64_t> ks) {
   translation::unsupported_void("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::_launch_triton_matmul");
 }
 
