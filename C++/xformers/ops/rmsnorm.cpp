@@ -4,6 +4,8 @@
 // LICENSE file in the root directory of this source tree.
 #include "rmsnorm.h"
 
+#include <stdexcept>
+
 namespace xformers::ops {
 namespace {
 torch::Tensor rms_norm_impl(const torch::Tensor& x,
@@ -22,15 +24,30 @@ torch::Tensor rms_norm_impl(const torch::Tensor& x,
 torch::Tensor rms_norm(const torch::Tensor& x,
                        const std::optional<torch::Tensor>& weight,
                        double eps) {
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
   return rms_norm_impl(x, weight, eps);
+#else
+  (void)x;
+  (void)weight;
+  (void)eps;
+  throw std::runtime_error("rms_norm requires a CUDA- or ROCm-enabled backend");
+#endif
 }
 
 torch::Tensor rms_norm_add(torch::Tensor& x,
                            const torch::Tensor& y,
                            const std::optional<torch::Tensor>& weight,
                            double eps) {
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
   x.add_(y);
   return rms_norm_impl(x, weight, eps);
+#else
+  (void)x;
+  (void)y;
+  (void)weight;
+  (void)eps;
+  throw std::runtime_error("rms_norm_add requires a CUDA- or ROCm-enabled backend");
+#endif
 }
 
 RMSNormImpl::RMSNormImpl(int64_t dim, bool include_weight, double eps) : eps_(eps) {

@@ -10,6 +10,7 @@
 #include <optional>
 #include <string>
 
+#include "backend_guards.h"
 #include <torch/torch.h>
 
 namespace xformers {

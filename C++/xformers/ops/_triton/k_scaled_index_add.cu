@@ -1,3 +1,4 @@
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
 // Copyright (c) Facebook, Inc. and its affiliates. All rights reserved.
 // 
 // This source code is licensed under the BSD license found in the
@@ -407,3 +408,6 @@ std::any scaled_index_add_bwd(torch::torch::Tensor grad_output, torch::torch::Te
 } // namespace _triton
 } // namespace ops
 } // namespace xformers
+#else
+// This translation unit is only enabled for CUDA/ROCm-class backends.
+#endif

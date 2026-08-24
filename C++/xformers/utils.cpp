@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <stdexcept>
 
 namespace xformers {
 
@@ -34,6 +35,7 @@ std::vector<std::string> import_all_modules(const std::filesystem::path& root,
 double do_bench_cudagraph(const std::function<void()>& fn,
                           int64_t rep,
                           const std::optional<std::vector<torch::Tensor>>& grad_to_none) {
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
   if (rep <= 0) {
     throw std::invalid_argument("rep must be positive");
   }
@@ -54,6 +56,12 @@ double do_bench_cudagraph(const std::function<void()>& fn,
   const auto end = std::chrono::high_resolution_clock::now();
   const auto elapsed = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(end - start);
   return elapsed.count() / static_cast<double>(rep);
+#else
+  (void)fn;
+  (void)rep;
+  (void)grad_to_none;
+  throw std::runtime_error("do_bench_cudagraph requires a CUDA- or ROCm-enabled backend");
+#endif
 }
 
 } // namespace xformers

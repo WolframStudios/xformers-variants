@@ -1,3 +1,4 @@
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
 // Copyright (c) Facebook, Inc. and its affiliates. All rights reserved.
 // 
 // This source code is licensed under the BSD license found in the
@@ -200,3 +201,6 @@ std::any _rms_norm_add_forward(torch::Tensor x, torch::Tensor y, std::any attn_n
 } // namespace _triton
 } // namespace ops
 } // namespace xformers
+#else
+// This translation unit is only enabled for CUDA/ROCm-class backends.
+#endif

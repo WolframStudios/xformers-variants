@@ -1,5 +1,7 @@
 #pragma once
 
+#include "xformers/backend_guards.h"
+
 #include <stdexcept>
 #include <string>
 

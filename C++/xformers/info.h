@@ -26,12 +26,16 @@ inline void print_info(std::ostream& os = std::cout) {
   auto features = get_features_status();
   os << "xFormers " << kVersion << '\n';
   features["pytorch.version"] = TORCH_VERSION;
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
   features["pytorch.cuda"] = torch::cuda::is_available() ? "available" : "not available";
   if (torch::cuda::is_available()) {
     const auto capability = torch::cuda::getDeviceCapability();
     features["gpu.compute_capability"] = std::to_string(capability.first) + "." + std::to_string(capability.second);
     features["gpu.name"] = torch::cuda::getDeviceName();
   }
+#else
+  features["pytorch.cuda"] = "disabled";
+#endif
   for (const auto& [name, status] : features) {
     os << name << ": " << status << '\n';
   }

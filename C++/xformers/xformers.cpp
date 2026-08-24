@@ -10,6 +10,7 @@
 namespace xformers {
 namespace {
 auto g_is_triton_available = compute_once<bool>([]() -> bool {
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
   if (const char* enabled = std::getenv("XFORMERS_ENABLE_TRITON")) {
     if (std::string(enabled) == "1") {
       return true;
@@ -25,6 +26,9 @@ auto g_is_triton_available = compute_once<bool>([]() -> bool {
   }
   const auto capability = torch::cuda::getDeviceCapability();
   return capability.first >= 8;
+#else
+  return false;
+#endif
 });
 
 auto g_python_library = compute_once<PythonLibraryHandle>([]() -> PythonLibraryHandle {

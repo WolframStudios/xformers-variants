@@ -1,3 +1,4 @@
+#if defined(XFORMERS_USE_CUDA) || defined(XFORMERS_USE_ROCM)
 // Copyright (c) Facebook, Inc. and its affiliates. All rights reserved.
 // 
 // This source code is licensed under the BSD license found in the
@@ -507,3 +508,6 @@ void _launch_triton_matmul(std::vector<List[torch::torch::Tensor]> a, std::vecto
 } // namespace _triton
 } // namespace ops
 } // namespace xformers
+#else
+// This translation unit is only enabled for CUDA/ROCm-class backends.
+#endif
