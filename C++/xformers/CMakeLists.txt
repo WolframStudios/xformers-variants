@@ -1,42 +1,40 @@
 # xformers library CMakeLists.txt
 
-# ── Collect sources ─────────────────────────────────────────────────────────
-file(GLOB XFORMERS_CXX_SOURCES
+file(GLOB XFORMERS_CORE_CXX_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
-
-file(GLOB XFORMERS_CUDA_SOURCES
+file(GLOB XFORMERS_CORE_CUDA_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cu"
 )
+file(GLOB_RECURSE XFORMERS_SUPPORT_CXX_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/flash_attn_3/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/profiler/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/sparse/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/triton/*.cpp"
+)
+file(GLOB_RECURSE XFORMERS_SUPPORT_CUDA_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/*.cu"
+    "${CMAKE_CURRENT_SOURCE_DIR}/components/*.cu"
+    "${CMAKE_CURRENT_SOURCE_DIR}/flash_attn_3/*.cu"
+    "${CMAKE_CURRENT_SOURCE_DIR}/profiler/*.cu"
+    "${CMAKE_CURRENT_SOURCE_DIR}/sparse/*.cu"
+    "${CMAKE_CURRENT_SOURCE_DIR}/triton/*.cu"
+)
 
-# ── Subdirectories ──────────────────────────────────────────────────────────
 add_subdirectory(ops)
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/sparse/CMakeLists.txt")
-    add_subdirectory(sparse)
-endif()
+set(XFORMERS_LIBRARY_SOURCES
+    ${XFORMERS_CORE_CXX_SOURCES}
+    ${XFORMERS_CORE_CUDA_SOURCES}
+    ${XFORMERS_SUPPORT_CXX_SOURCES}
+    ${XFORMERS_SUPPORT_CUDA_SOURCES}
+)
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/profiler/CMakeLists.txt")
-    add_subdirectory(profiler)
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/CMakeLists.txt")
-    add_subdirectory(benchmarks)
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/flash_attn_3/CMakeLists.txt")
-    add_subdirectory(flash_attn_3)
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/components/CMakeLists.txt")
-    add_subdirectory(components)
-endif()
-
-# ── Build xformers core library ─────────────────────────────────────────────
-if(XFORMERS_CXX_SOURCES OR XFORMERS_CUDA_SOURCES)
+if(XFORMERS_LIBRARY_SOURCES)
     add_library(xformers
-        ${XFORMERS_CXX_SOURCES}
-        ${XFORMERS_CUDA_SOURCES}
+        ${XFORMERS_LIBRARY_SOURCES}
     )
 
     set_target_properties(xformers PROPERTIES
@@ -46,13 +44,11 @@ if(XFORMERS_CXX_SOURCES OR XFORMERS_CUDA_SOURCES)
 
     target_include_directories(xformers PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${TORCH_INCLUDE_DIRS}
-        ${CUDA_INCLUDE_DIRS}
+        ${XFORMERS_COMMON_INCLUDE_DIRS}
     )
 
     target_link_libraries(xformers PUBLIC
-        ${TORCH_LIBRARIES}
-        ${CUDA_LIBRARIES}
-        cuda
+        xformers_ops
+        ${XFORMERS_COMMON_LINK_LIBS}
     )
 endif()

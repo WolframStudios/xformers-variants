@@ -1,110 +1,59 @@
 cmake_minimum_required(VERSION 3.18)
-project(xformers_cpp LANGUAGES CXX)
+project(xformers_cpp LANGUAGES CXX CUDA)
 
-# ── C++ Standard ─────────────────────────────────────────────────────────────
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CUDA_STANDARD 17)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+set(CMAKE_CUDA_ARCHITECTURES 70 75 80 86 89 90)
 
-# ── CMake module path ─────────────────────────────────────────────────────────
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/backends")
-
-# ── Backend options (all OFF by default – select what you need) ───────────────
-option(XFORMERS_USE_CUDA     "Enable NVIDIA CUDA backend"          OFF)
-option(XFORMERS_USE_ROCM     "Enable AMD ROCm/HIP backend"         OFF)
-option(XFORMERS_USE_VULKAN   "Enable Vulkan compute backend"       OFF)
-option(XFORMERS_USE_OPENVINO "Enable Intel OpenVINO backend"       OFF)
-option(XFORMERS_USE_IPEX     "Enable Intel Extension for PyTorch"  OFF)
-option(XFORMERS_USE_OPENML   "Enable OpenML backend"              OFF)
-option(XFORMERS_USE_OPENGL   "Enable OpenGL compute backend"       OFF)
-option(XFORMERS_BUILD_TESTS  "Build test suite"                    ON)
-
-# ── Accumulate backend compile definitions ────────────────────────────────────
-set(XFORMERS_BACKEND_DEFINES "")
-
-# ── CUDA ──────────────────────────────────────────────────────────────────────
-if(XFORMERS_USE_CUDA)
-    include(backends/cuda)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_CUDA)
-endif()
-
-# ── ROCm / HIP ────────────────────────────────────────────────────────────────
-if(XFORMERS_USE_ROCM)
-    include(backends/rocm)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_ROCM)
-endif()
-
-# ── Vulkan ────────────────────────────────────────────────────────────────────
-if(XFORMERS_USE_VULKAN)
-    include(backends/vulkan)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_VULKAN)
-endif()
-
-# ── OpenVINO ──────────────────────────────────────────────────────────────────
-if(XFORMERS_USE_OPENVINO)
-    include(backends/openvino)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_OPENVINO)
-endif()
-
-# ── IPEX (Intel Extension for PyTorch) ────────────────────────────────────────
-if(XFORMERS_USE_IPEX)
-    include(backends/ipex)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_IPEX)
-endif()
-
-# ── OpenML
-if(XFORMERS_USE_OPENML)
-    include(backends/openml)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_OPENML)
-endif()
-
-# ── OpenGL ────────────────────────────────────────────────────────────────────
-if(XFORMERS_USE_OPENGL)
-    include(backends/opengl)
-    list(APPEND XFORMERS_BACKEND_DEFINES XFORMERS_USE_OPENGL)
-endif()
-
-# ── Warn if no backend selected ───────────────────────────────────────────────
-if(NOT XFORMERS_BACKEND_DEFINES)
-    message(WARNING
-        "No backend selected. Pass at least one of: "
-        "-DXFORMERS_USE_CUDA=ON -DXFORMERS_USE_ROCM=ON "
-        "-DXFORMERS_USE_VULKAN=ON -DXFORMERS_USE_OPENVINO=ON "
-        "-DXFORMERS_USE_IPEX=ON -DXFORMERS_USE_OPENGL=ON")
-endif()
-
-# ── LibTorch (required by all backends) ───────────────────────────────────────
+find_package(CUDA REQUIRED)
 find_package(Torch REQUIRED)
+find_package(GTest REQUIRED)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
-# ── Google Test ───────────────────────────────────────────────────────────────
-if(XFORMERS_BUILD_TESTS)
-    find_package(GTest QUIET)
-endif()
-
-# ── Global includes ───────────────────────────────────────────────────────────
-include_directories(
+set(XFORMERS_COMMON_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${TORCH_INCLUDE_DIRS}
+    ${CUDA_INCLUDE_DIRS}
 )
 
-# ── Subdirectories ────────────────────────────────────────────────────────────
-add_subdirectory(xformers)
+set(XFORMERS_COMMON_LINK_LIBS
+    ${TORCH_LIBRARIES}
+    ${CUDA_LIBRARIES}
+    torch
+    torch_cuda
+    cuda
+)
 
-if(XFORMERS_BUILD_TESTS AND GTest_FOUND AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt")
-    add_subdirectory(tests)
+include_directories(${XFORMERS_COMMON_INCLUDE_DIRS})
+
+file(GLOB_RECURSE XFORMERS_PORT_SUPPORT_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/.github/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/docs/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/examples/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/stubs/*.cpp"
+)
+
+if(XFORMERS_PORT_SUPPORT_SOURCES)
+    add_library(xformers_port_support STATIC
+        ${XFORMERS_PORT_SUPPORT_SOURCES}
+    )
+
+    set_target_properties(xformers_port_support PROPERTIES
+        POSITION_INDEPENDENT_CODE ON
+    )
+
+    target_include_directories(xformers_port_support PUBLIC
+        ${XFORMERS_COMMON_INCLUDE_DIRS}
+    )
+
+    target_link_libraries(xformers_port_support PUBLIC
+        ${XFORMERS_COMMON_LINK_LIBS}
+    )
 endif()
 
-# ── Configuration summary ─────────────────────────────────────────────────────
-message(STATUS "=== xformers build configuration ===")
-message(STATUS "  CUDA     : ${XFORMERS_USE_CUDA}")
-message(STATUS "  ROCm     : ${XFORMERS_USE_ROCM}")
-message(STATUS "  Vulkan   : ${XFORMERS_USE_VULKAN}")
-message(STATUS "  OpenVINO : ${XFORMERS_USE_OPENVINO}")
-message(STATUS "  IPEX     : ${XFORMERS_USE_IPEX}")
-message(STATUS "  OpenML   : ${XFORMERS_USE_OPENML}")
-message(STATUS "  OpenGL   : ${XFORMERS_USE_OPENGL}")
-message(STATUS "  Tests    : ${XFORMERS_BUILD_TESTS}")
-message(STATUS "=====================================")
+add_subdirectory(xformers)
+add_subdirectory(tests)

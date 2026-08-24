@@ -1,12 +1,10 @@
-# tests CMakeLists.txt
-
 find_package(GTest REQUIRED)
 
-file(GLOB TEST_CXX_SOURCES
+file(GLOB TEST_CXX_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
 
-file(GLOB TEST_CUDA_SOURCES
+file(GLOB TEST_CUDA_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cu"
 )
 
@@ -23,19 +21,16 @@ if(ALL_TEST_SOURCES)
 
     target_include_directories(xformers_tests PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/..
-        ${TORCH_INCLUDE_DIRS}
-        ${CUDA_INCLUDE_DIRS}
+        ${XFORMERS_COMMON_INCLUDE_DIRS}
         ${GTEST_INCLUDE_DIRS}
     )
 
     target_link_libraries(xformers_tests PRIVATE
         xformers
         xformers_ops
-        ${TORCH_LIBRARIES}
-        ${CUDA_LIBRARIES}
-        cuda
-        GTest::GTest
-        GTest::Main
+        ${XFORMERS_COMMON_LINK_LIBS}
+        GTest::gtest
+        GTest::gtest_main
     )
 
     include(GoogleTest)
