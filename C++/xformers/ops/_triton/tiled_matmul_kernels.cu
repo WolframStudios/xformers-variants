@@ -464,11 +464,11 @@ std::any init_to_zero(std::vector<std::any> varargs = {}) {
   return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::init_to_zero");
 }
 
-triton.Config gen_config(int64_t block_m, int64_t block_n, int64_t block_k, int64_t stages, int64_t warps, int64_t split_k = 1, int64_t group_m = 8) {
+std::any gen_config(int64_t block_m, int64_t block_n, int64_t block_k, int64_t stages, int64_t warps, int64_t split_k = 1, int64_t group_m = 8) {
   /*
   A more compact way to define a triton.Config, so it fits on one line
   */
-  return translation::unsupported<triton.Config>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::gen_config");
+  return translation::unsupported<std::any>("Translated placeholder for xformers/ops/_triton/tiled_matmul_kernels.py::gen_config");
 }
 
 std::any our_estimate_matmul_time(std::any A11, std::any B11, std::any C11, std::any M1, std::any M2, std::any M3, std::any N1, std::any N2, std::any N3, std::any K1, std::any K2, std::any K3, std::unordered_map<std::string, std::any> kwargs = {}) {

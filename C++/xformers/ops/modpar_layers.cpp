@@ -189,7 +189,10 @@ class RowParallelLinear(torch.nn.Module):
 namespace xformers {
 namespace ops {
 
-void _init_2d_weight(torch::torch::Tensor weight, std::function<std::any(std::vector<std::any>)>[[torch::torch::Tensor], torch::torch::Tensor] init_method, std::optional<torch.distd::stringibuted.ProcessGroup> process_group, int64_t partition_dim) {
+void _init_2d_weight(torch::Tensor weight,
+                     const std::function<torch::Tensor(torch::Tensor)>& init_method,
+                     std::optional<std::any> process_group,
+                     int64_t partition_dim) {
   translation::unsupported_void("Translated placeholder for xformers/ops/modpar_layers.py::_init_2d_weight");
 }
 
@@ -199,8 +202,8 @@ class ColumnParallelLinear : public torch::nn::Module {
   void __init__(int64_t in_features, std::vector<int64_t> out_features) {
     translation::unsupported_void("Translated placeholder for xformers/ops/modpar_layers.py::__init__");
   }
-  std::vector<torch::torch::Tensor> forward(torch::torch::Tensor input_) {
-    return translation::unsupported<std::vector<torch::torch::Tensor>>("Translated placeholder for xformers/ops/modpar_layers.py::forward");
+  std::vector<torch::Tensor> forward(torch::Tensor input_) {
+    return translation::unsupported<std::vector<torch::Tensor>>("Translated placeholder for xformers/ops/modpar_layers.py::forward");
   }
 };
 
@@ -210,8 +213,8 @@ class RowParallelLinear : public torch::nn::Module {
   void __init__(int64_t in_features, int64_t out_features) {
     translation::unsupported_void("Translated placeholder for xformers/ops/modpar_layers.py::__init__");
   }
-  torch::torch::Tensor forward(torch::torch::Tensor input_) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/modpar_layers.py::forward");
+  torch::Tensor forward(torch::Tensor input_) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/modpar_layers.py::forward");
   }
 };
 

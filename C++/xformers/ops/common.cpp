@@ -101,11 +101,12 @@ class BaseOperator {
   }
 };
 
+template <typename ClsT>
 ClsT register_operator(ClsT cls) {
   return translation::unsupported<ClsT>("Translated placeholder for xformers/ops/common.py::register_operator");
 }
 
-int64_t _get_storage_base(torch::torch::Tensor x) {
+int64_t _get_storage_base(torch::Tensor x) {
   return translation::unsupported<int64_t>("Translated placeholder for xformers/ops/common.py::_get_storage_base");
 }
 

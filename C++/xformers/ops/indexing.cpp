@@ -316,7 +316,7 @@ class _IndexSelectCat : public Function {
   }
 };
 
-torch::torch::Tensor index_select_cat(Sequence[torch::torch::Tensor] sources, Sequence[torch::torch::Tensor] indices) {
+torch::Tensor index_select_cat(std::vector<torch::Tensor> sources, std::vector<torch::Tensor> indices) {
   /*
   Indices in ``index`` are assumed to be unique
   In each (index, source) pair, the max index in ``index`` is assumed to be less than the size of dim0 of ``source``
@@ -336,7 +336,7 @@ torch::torch::Tensor index_select_cat(Sequence[torch::torch::Tensor] sources, Se
   
       return torch.cat([s[i.long()].flatten() for s, i in zip(sources, indices)], dim=0)
   */
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::index_select_cat");
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/indexing.py::index_select_cat");
 }
 
 } // namespace ops

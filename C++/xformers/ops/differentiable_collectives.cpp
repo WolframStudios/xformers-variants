@@ -15,6 +15,7 @@
 #include <tuple>
 #include <unordered_map>
 #include <vector>
+#include <variant>
 #include <stdexcept>
 #include "../../translation_support.h"
 
@@ -212,49 +213,52 @@ def scatter_to_sequence_parallel_region(
 namespace xformers {
 namespace ops {
 
-void all_reduce(torch::torch::Tensor x) {
+using ProcessGroupHandle = std::any;
+using WorkHandle = std::any;
+
+void all_reduce(torch::Tensor x) {
   translation::unsupported_void("Translated placeholder for xformers/ops/differentiable_collectives.py::all_reduce");
 }
 
-std::tuple<torch::torch::Tensor, std::optional<torch.distd::stringibuted.Work>> gather_along_first_dim_async(torch::torch::Tensor input_) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, std::optional<torch.distd::stringibuted.Work>>>("Translated placeholder for xformers/ops/differentiable_collectives.py::gather_along_first_dim_async");
+std::tuple<torch::Tensor, std::optional<WorkHandle>> gather_along_first_dim_async(torch::Tensor input_) {
+  return translation::unsupported<std::tuple<torch::Tensor, std::optional<WorkHandle>>>("Translated placeholder for xformers/ops/differentiable_collectives.py::gather_along_first_dim_async");
 }
 
-std::tuple<torch::torch::Tensor, std::optional<torch.distd::stringibuted.Work>> reduce_scatter_along_first_dim_async(torch::torch::Tensor input_) {
-  return translation::unsupported<std::tuple<torch::torch::Tensor, std::optional<torch.distd::stringibuted.Work>>>("Translated placeholder for xformers/ops/differentiable_collectives.py::reduce_scatter_along_first_dim_async");
+std::tuple<torch::Tensor, std::optional<WorkHandle>> reduce_scatter_along_first_dim_async(torch::Tensor input_) {
+  return translation::unsupported<std::tuple<torch::Tensor, std::optional<WorkHandle>>>("Translated placeholder for xformers/ops/differentiable_collectives.py::reduce_scatter_along_first_dim_async");
 }
 
-torch::torch::Tensor gather_along_first_dim(torch::torch::Tensor input_) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::gather_along_first_dim");
+torch::Tensor gather_along_first_dim(torch::Tensor input_) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::gather_along_first_dim");
 }
 
-torch::torch::Tensor reduce_scatter_along_first_dim(torch::torch::Tensor input_) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::reduce_scatter_along_first_dim");
+torch::Tensor reduce_scatter_along_first_dim(torch::Tensor input_) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::reduce_scatter_along_first_dim");
 }
 
 class _CopyToModelParallelRegion : public Function {
  public:
   _CopyToModelParallelRegion() = default;
-  torch::torch::Tensor forward(std::any ctx, torch::torch::Tensor input_, torch.distd::stringibuted.ProcessGroup process_group) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::forward");
+  torch::Tensor forward(std::any ctx, torch::Tensor input_, ProcessGroupHandle process_group) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::forward");
   }
-  std::tuple<torch::torch::Tensor, void> backward(std::any ctx, torch::torch::Tensor grad_output) {
-    return translation::unsupported<std::tuple<torch::torch::Tensor, void>>("Translated placeholder for xformers/ops/differentiable_collectives.py::backward");
+  std::tuple<torch::Tensor, std::monostate> backward(std::any ctx, torch::Tensor grad_output) {
+    return translation::unsupported<std::tuple<torch::Tensor, std::monostate>>("Translated placeholder for xformers/ops/differentiable_collectives.py::backward");
   }
 };
 
-torch::torch::Tensor copy_to_model_parallel_region(torch::torch::Tensor x, std::optional<torch.distd::stringibuted.ProcessGroup> process_group) {
-  return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::copy_to_model_parallel_region");
+torch::Tensor copy_to_model_parallel_region(torch::Tensor x, std::optional<ProcessGroupHandle> process_group) {
+  return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::copy_to_model_parallel_region");
 }
 
 class _ReduceFromModelParallelRegion : public Function {
  public:
   _ReduceFromModelParallelRegion() = default;
-  torch::torch::Tensor forward(std::any ctx, torch::torch::Tensor input_, torch.distd::stringibuted.ProcessGroup process_group) {
-    return translation::unsupported<torch::torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::forward");
+  torch::Tensor forward(std::any ctx, torch::Tensor input_, ProcessGroupHandle process_group) {
+    return translation::unsupported<torch::Tensor>("Translated placeholder for xformers/ops/differentiable_collectives.py::forward");
   }
-  std::tuple<torch::torch::Tensor, void> backward(std::any ctx, torch::torch::Tensor grad_output) {
-    return translation::unsupported<std::tuple<torch::torch::Tensor, void>>("Translated placeholder for xformers/ops/differentiable_collectives.py::backward");
+  std::tuple<torch::Tensor, std::monostate> backward(std::any ctx, torch::Tensor grad_output) {
+    return translation::unsupported<std::tuple<torch::Tensor, std::monostate>>("Translated placeholder for xformers/ops/differentiable_collectives.py::backward");
   }
 };
 

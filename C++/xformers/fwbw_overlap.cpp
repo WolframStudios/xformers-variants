@@ -565,13 +565,13 @@ class EventOverlapHolder : public Tensor {
   overlaps in the BW pass
   */
   EventOverlapHolder() = default;
-  'EventOverlapHolder' capture(torch.device device, std::string name = "") {
-    return translation::unsupported<'EventOverlapHolder'>("Translated placeholder for xformers/fwbw_overlap.py::capture");
+  EventOverlapHolder capture(std::string device, std::string name = "") {
+    return translation::unsupported<EventOverlapHolder>("Translated placeholder for xformers/fwbw_overlap.py::capture");
   }
-  std::any __new__(Union[EventOverlap, void] event_overlap, torch.device device, std::string name = "", bool requires_grad = true) {
+  std::any __new__(std::optional<std::any> event_overlap, std::string device, std::string name = "", bool requires_grad = true) {
     return translation::unsupported<std::any>("Translated placeholder for xformers/fwbw_overlap.py::__new__");
   }
-  void __init__(Union[EventOverlap, void] event_overlap, torch.device device, std::string name = "", bool requires_grad = true) {
+  void __init__(std::optional<std::any> event_overlap, std::string device, std::string name = "", bool requires_grad = true) {
     translation::unsupported_void("Translated placeholder for xformers/fwbw_overlap.py::__init__");
   }
   std::any __tensor_flatten__() {
